@@ -1,5 +1,6 @@
 package com.sawlov2code.rmbackend.controller;
 
+import com.sawlov2code.rmbackend.exception.RestaurantIsEmptyException;
 import com.sawlov2code.rmbackend.exception.RestaurantNameEmptyException;
 import com.sawlov2code.rmbackend.model.Restaurants;
 import com.sawlov2code.rmbackend.service.RestaurantService;
@@ -19,6 +20,10 @@ public class RestaurantController {
 
     @GetMapping
     public List<Restaurants> getRestaurants() {
+        List<Restaurants> restaurantList = restaurantService.getRestaurants();
+        if( restaurantList.isEmpty()) {
+            throw new RestaurantIsEmptyException("No restaurant available in Database");
+        }
         return restaurantService.getRestaurants();
     }
 
@@ -28,7 +33,6 @@ public class RestaurantController {
             throw new RestaurantNameEmptyException("Restaurant name cannot be empty");
         }
         return restaurantService.save(restaurants);
-
     }
 
 
