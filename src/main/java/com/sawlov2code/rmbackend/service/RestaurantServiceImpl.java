@@ -5,6 +5,7 @@ import com.sawlov2code.rmbackend.model.Restaurants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,5 +24,11 @@ public class RestaurantServiceImpl implements RestaurantService {
         List<Restaurants> restaurants = restaurantRepository.findAll();
         logger.info("Returning {} restaurants", restaurants.size());
         return restaurants;
+    }
+
+    @Override
+    @Transactional
+    public Restaurants save(Restaurants restaurants) {
+        return restaurantRepository.save(restaurants);
     }
 }

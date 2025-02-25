@@ -1,10 +1,9 @@
 package com.sawlov2code.rmbackend.controller;
 
+import com.sawlov2code.rmbackend.exception.RestaurantNameEmptyException;
 import com.sawlov2code.rmbackend.model.Restaurants;
 import com.sawlov2code.rmbackend.service.RestaurantService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +20,16 @@ public class RestaurantController {
     @GetMapping
     public List<Restaurants> getRestaurants() {
         return restaurantService.getRestaurants();
+    }
+
+    @PostMapping
+    public Restaurants createRestaurant(@RequestBody Restaurants restaurants) {
+        if (restaurants.getRestaurantName() == null || restaurants.getRestaurantName().isEmpty()) {
+            throw new RestaurantNameEmptyException("Restaurant name cannot be empty");
+        }
+        return restaurantService.save(restaurants);
 
     }
+
+
 }
