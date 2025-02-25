@@ -4,6 +4,9 @@ import com.sawlov2code.rmbackend.model.Restaurants;
 
 import java.util.List;
 
+/**
+ * Provides methods for managing restaurants.
+ */
 public interface RestaurantService {
     List<Restaurants> getRestaurants();
     Restaurants save(Restaurants restaurants);

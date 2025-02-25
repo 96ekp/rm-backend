@@ -1,7 +1,7 @@
 package com.sawlov2code.rmbackend.globalException;
 
 import com.sawlov2code.rmbackend.exception.RestaurantIsEmptyException;
-import com.sawlov2code.rmbackend.exception.RestaurantNameEmptyException;
+import com.sawlov2code.rmbackend.exception.RestaurantAlreadyExistsException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -14,8 +14,8 @@ import java.util.Map;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(RestaurantNameEmptyException.class)
-    public ResponseEntity<Object> handleRestaurantNameEmptyException(RestaurantNameEmptyException ex, WebRequest request) {
+    @ExceptionHandler(RestaurantAlreadyExistsException.class)
+    public ResponseEntity<Object> handleRestaurantNameEmptyException(RestaurantAlreadyExistsException ex, WebRequest request) {
         Map<String, Object> body  = new HashMap<>();
         body.put("timestamp", LocalDateTime.now());
         body.put("status", HttpStatus.BAD_REQUEST);

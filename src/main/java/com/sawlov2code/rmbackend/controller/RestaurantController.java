@@ -1,7 +1,7 @@
 package com.sawlov2code.rmbackend.controller;
 
 import com.sawlov2code.rmbackend.exception.RestaurantIsEmptyException;
-import com.sawlov2code.rmbackend.exception.RestaurantNameEmptyException;
+import com.sawlov2code.rmbackend.exception.RestaurantAlreadyExistsException;
 import com.sawlov2code.rmbackend.model.Restaurants;
 import com.sawlov2code.rmbackend.service.RestaurantService;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +21,7 @@ public class RestaurantController {
     @GetMapping
     public List<Restaurants> getRestaurants() {
         List<Restaurants> restaurantList = restaurantService.getRestaurants();
-        if( restaurantList.isEmpty()) {
+        if (restaurantList.isEmpty()) {
             throw new RestaurantIsEmptyException("No restaurant available in Database");
         }
         return restaurantService.getRestaurants();
@@ -30,9 +30,16 @@ public class RestaurantController {
     @PostMapping
     public Restaurants createRestaurant(@RequestBody Restaurants restaurants) {
         if (restaurants.getRestaurantName() == null || restaurants.getRestaurantName().isEmpty()) {
-            throw new RestaurantNameEmptyException("Restaurant name cannot be empty");
+            throw new RestaurantAlreadyExistsException("Restaurant name cannot be empty");
         }
-        return restaurantService.save(restaurants);
+        if (restaurantService.getRestaurants().stream()
+                .anyMatch(restaurant -> restaurant.getRestaurantName()
+                        .equalsIgnoreCase(restaurants.getRestaurantName()))) {
+            throw new RestaurantAlreadyExistsException("Restaurant name already exists");
+        } else {
+            return restaurantService.save(restaurants);
+        }
+
     }
 
 
