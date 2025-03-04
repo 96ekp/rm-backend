@@ -1,0 +1,38 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "getRestaurants_ShouldThrowException_WhenNoRestaurantsAvailable",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/test/java/com/sawlov2code/rmbackend/controller/RestaurantControllerTest.java:75"
+                      }
+                    ],
+                    "name": "RestaurantControllerTest",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              }
+            ],
+            "name": "rmbackend",
+            "type": "package"
+          }
+        ],
+        "name": "sawlov2code",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  }
+]

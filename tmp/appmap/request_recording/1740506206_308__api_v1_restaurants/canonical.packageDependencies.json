@@ -1,0 +1,18 @@
+[
+  {
+    "caller": "HTTP server requests",
+    "callee": "com/sawlov2code/rmbackend/controller"
+  },
+  {
+    "caller": "HTTP server requests",
+    "callee": "com/sawlov2code/rmbackend/globalException"
+  },
+  {
+    "caller": "com/sawlov2code/rmbackend/controller",
+    "callee": ""
+  },
+  {
+    "caller": "com/sawlov2code/rmbackend/controller",
+    "callee": "Database"
+  }
+]

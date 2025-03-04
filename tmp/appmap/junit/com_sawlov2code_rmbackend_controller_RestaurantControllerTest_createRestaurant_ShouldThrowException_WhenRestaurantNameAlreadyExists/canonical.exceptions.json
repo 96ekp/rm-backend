@@ -1,0 +1,12 @@
+[
+  {
+    "class": "com.sawlov2code.rmbackend.exception.RestaurantAlreadyExistsException",
+    "message": "Restaurant name already exists",
+    "stack": [
+      "RestaurantController.java:38",
+      "src/main/java/com/sawlov2code/rmbackend/controller/RestaurantController.java:32",
+      "src/test/java/com/sawlov2code/rmbackend/controller/RestaurantControllerTest.java:57"
+    ],
+    "location": "RestaurantController.java:38"
+  }
+]

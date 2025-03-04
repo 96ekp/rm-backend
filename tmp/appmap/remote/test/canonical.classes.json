@@ -1,0 +1,5 @@
+[
+  "com/sawlov2code/rmbackend/controller/RestaurantController",
+  "com/sawlov2code/rmbackend/globalException/GlobalExceptionHandler",
+  "com/sawlov2code/rmbackend/service/RestaurantServiceImpl"
+]

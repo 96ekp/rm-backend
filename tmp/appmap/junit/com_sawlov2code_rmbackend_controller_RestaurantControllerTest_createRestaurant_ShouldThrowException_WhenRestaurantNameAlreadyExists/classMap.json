@@ -1,0 +1,50 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "createRestaurant",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/sawlov2code/rmbackend/controller/RestaurantController.java:32"
+                      }
+                    ],
+                    "name": "RestaurantController",
+                    "type": "class"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "createRestaurant_ShouldThrowException_WhenRestaurantNameAlreadyExists",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/test/java/com/sawlov2code/rmbackend/controller/RestaurantControllerTest.java:57"
+                      }
+                    ],
+                    "name": "RestaurantControllerTest",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              }
+            ],
+            "name": "rmbackend",
+            "type": "package"
+          }
+        ],
+        "name": "sawlov2code",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  }
+]

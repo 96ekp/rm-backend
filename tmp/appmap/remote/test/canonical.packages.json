@@ -1,0 +1,5 @@
+[
+  "com/sawlov2code/rmbackend/controller",
+  "com/sawlov2code/rmbackend/globalException",
+  "com/sawlov2code/rmbackend/service"
+]

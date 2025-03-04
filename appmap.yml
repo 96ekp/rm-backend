@@ -1,0 +1,5 @@
+language: "java"
+name: "rm-backend"
+appmap_dir: "tmp/appmap"
+packages:
+- path: "com.sawlov2code.rmbackend"

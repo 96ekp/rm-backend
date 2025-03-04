@@ -1,0 +1,12 @@
+[
+  {
+    "class": "com.sawlov2code.rmbackend.exception.RestaurantAlreadyExistsException",
+    "message": "Restaurant name cannot be empty",
+    "stack": [
+      "RestaurantController.java:33",
+      "src/main/java/com/sawlov2code/rmbackend/controller/RestaurantController.java:32",
+      "src/test/java/com/sawlov2code/rmbackend/controller/RestaurantControllerTest.java:47"
+    ],
+    "location": "RestaurantController.java:33"
+  }
+]

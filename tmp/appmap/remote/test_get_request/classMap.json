@@ -1,0 +1,30 @@
+[
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "GET /api/v1/restaurants"
+      }
+    ]
+  },
+  {
+    "type": "class",
+    "children": [
+      {
+        "type": "function"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select r1_0.id,r1_0.restaurant_name,r1_0.selected_amount from restaurants r1_0"
+      }
+    ]
+  }
+]

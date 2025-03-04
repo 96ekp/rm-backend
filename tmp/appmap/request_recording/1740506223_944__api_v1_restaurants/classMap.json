@@ -1,0 +1,92 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "save",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/sawlov2code/rmbackend/service/RestaurantServiceImpl.java:32"
+                      }
+                    ],
+                    "name": "RestaurantServiceImpl",
+                    "type": "class"
+                  }
+                ],
+                "name": "service",
+                "type": "package"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "createRestaurant",
+                        "type": "function",
+                        "static": false,
+                        "location": "src/main/java/com/sawlov2code/rmbackend/controller/RestaurantController.java:32"
+                      }
+                    ],
+                    "name": "RestaurantController",
+                    "type": "class"
+                  }
+                ],
+                "name": "controller",
+                "type": "package"
+              }
+            ],
+            "name": "rmbackend",
+            "type": "package"
+          }
+        ],
+        "name": "sawlov2code",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "POST /api/v1/restaurants"
+      }
+    ]
+  },
+  {
+    "type": "class",
+    "children": [
+      {
+        "type": "function"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select r1_0.id,r1_0.restaurant_name,r1_0.selected_amount from restaurants r1_0"
+      },
+      {
+        "type": "query",
+        "name": "select nextval('restaurant_sequence')"
+      },
+      {
+        "type": "query",
+        "name": "insert into restaurants (restaurant_name,selected_amount,id) values (?,?,?)"
+      }
+    ]
+  }
+]

@@ -1,0 +1,466 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "36",
+          "postman-token": "a138b188-db0d-4996-8db5-0f2fb9d4f493",
+          "host": "localhost:8080",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.43.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/v1/restaurants",
+        "path_info": "/api/v1/restaurants",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 1,
+      "thread_id": 38
+    },
+    {
+      "defined_class": "com.sawlov2code.rmbackend.controller.RestaurantController",
+      "event": "call",
+      "id": 2,
+      "lineno": 32,
+      "method_id": "createRestaurant",
+      "parameters": [
+        {
+          "class": "com.sawlov2code.rmbackend.model.Restaurants",
+          "kind": "req",
+          "name": "restaurants",
+          "object_id": 1641187183,
+          "value": "Restaurants{id=null, restaurantName='restaurant', selectedAmount=0}"
+        }
+      ],
+      "path": "src/main/java/com/sawlov2code/rmbackend/controller/RestaurantController.java",
+      "receiver": {
+        "class": "com.sawlov2code.rmbackend.controller.RestaurantController",
+        "object_id": 559434649,
+        "value": "com.sawlov2code.rmbackend.controller.RestaurantController@21584b99"
+      },
+      "static": false,
+      "thread_id": 38
+    },
+    {
+      "event": "call",
+      "id": 3,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": ""
+      },
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.000638,
+      "event": "return",
+      "id": 4,
+      "parent_id": 3,
+      "thread_id": 38
+    },
+    {
+      "event": "call",
+      "id": 5,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select r1_0.id,r1_0.restaurant_name,r1_0.selected_amount from restaurants r1_0"
+      },
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.0001657,
+      "event": "return",
+      "id": 6,
+      "parent_id": 5,
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.0383622,
+      "event": "return",
+      "exceptions": [
+        {
+          "class": "com.sawlov2code.rmbackend.exception.RestaurantAlreadyExistsException",
+          "lineno": 38,
+          "message": "Restaurant name already exists",
+          "object_id": 686826736,
+          "path": "RestaurantController.java"
+        }
+      ],
+      "id": 7,
+      "parent_id": 2,
+      "thread_id": 38
+    },
+    {
+      "defined_class": "com.sawlov2code.rmbackend.globalException.GlobalExceptionHandler",
+      "event": "call",
+      "id": 8,
+      "lineno": 19,
+      "method_id": "handleRestaurantNameEmptyException",
+      "parameters": [
+        {
+          "class": "com.sawlov2code.rmbackend.exception.RestaurantAlreadyExistsException",
+          "kind": "req",
+          "name": "ex",
+          "object_id": 686826736,
+          "value": "com.sawlov2code.rmbackend.exception.RestaurantAlreadyExistsException: Restaurant name already exists"
+        },
+        {
+          "class": "org.springframework.web.context.request.ServletWebRequest",
+          "kind": "req",
+          "name": "request",
+          "object_id": 1371651624,
+          "value": "ServletWebRequest: uri=/api/v1/restaurants;client=0:0:0:0:0:0:0:1"
+        }
+      ],
+      "path": "src/main/java/com/sawlov2code/rmbackend/globalException/GlobalExceptionHandler.java",
+      "receiver": {
+        "class": "com.sawlov2code.rmbackend.globalException.GlobalExceptionHandler",
+        "object_id": 1972276109,
+        "value": "com.sawlov2code.rmbackend.globalException.GlobalExceptionHandler@758e8b8d"
+      },
+      "static": false,
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.0004011,
+      "event": "return",
+      "id": 9,
+      "parent_id": 8,
+      "return_value": {
+        "class": "org.springframework.http.ResponseEntity",
+        "object_id": 1147817348,
+        "value": "<400 BAD_REQUEST Bad Request,{path=/api/v1/restaurants, error=Bad Request, message=Restaurant name already exists, timestamp=2025-02-26T00:56:46.824988, status=400 BAD_REQUEST},[]>"
+      },
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.0542918,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "Date": "Tue, 25 Feb 2025 17:56:46 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 400
+      },
+      "id": 10,
+      "parent_id": 1,
+      "thread_id": 38
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "42",
+          "postman-token": "9d8c2b83-d9a0-4d08-9abd-bc54b8b81740",
+          "host": "localhost:8080",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.43.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/v1/restaurants",
+        "path_info": "/api/v1/restaurants",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 11,
+      "thread_id": 40
+    },
+    {
+      "defined_class": "com.sawlov2code.rmbackend.controller.RestaurantController",
+      "event": "call",
+      "id": 12,
+      "lineno": 32,
+      "method_id": "createRestaurant",
+      "parameters": [
+        {
+          "class": "com.sawlov2code.rmbackend.model.Restaurants",
+          "kind": "req",
+          "name": "restaurants",
+          "object_id": 202144353,
+          "value": "Restaurants{id=null, restaurantName='Local Restaurant', selectedAmount=0}"
+        }
+      ],
+      "path": "src/main/java/com/sawlov2code/rmbackend/controller/RestaurantController.java",
+      "receiver": {
+        "class": "com.sawlov2code.rmbackend.controller.RestaurantController",
+        "object_id": 559434649,
+        "value": "com.sawlov2code.rmbackend.controller.RestaurantController@21584b99"
+      },
+      "static": false,
+      "thread_id": 40
+    },
+    {
+      "event": "call",
+      "id": 13,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": ""
+      },
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.0000732,
+      "event": "return",
+      "id": 14,
+      "parent_id": 13,
+      "thread_id": 40
+    },
+    {
+      "event": "call",
+      "id": 15,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select r1_0.id,r1_0.restaurant_name,r1_0.selected_amount from restaurants r1_0"
+      },
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.0000265,
+      "event": "return",
+      "id": 16,
+      "parent_id": 15,
+      "thread_id": 40
+    },
+    {
+      "defined_class": "com.sawlov2code.rmbackend.service.RestaurantServiceImpl",
+      "event": "call",
+      "id": 17,
+      "lineno": 32,
+      "method_id": "save",
+      "parameters": [
+        {
+          "class": "com.sawlov2code.rmbackend.model.Restaurants",
+          "kind": "req",
+          "name": "restaurants",
+          "object_id": 202144353,
+          "value": "Restaurants{id=null, restaurantName='Local Restaurant', selectedAmount=0}"
+        }
+      ],
+      "path": "src/main/java/com/sawlov2code/rmbackend/service/RestaurantServiceImpl.java",
+      "receiver": {
+        "class": "com.sawlov2code.rmbackend.service.RestaurantServiceImpl",
+        "object_id": 2134251218,
+        "value": "com.sawlov2code.rmbackend.service.RestaurantServiceImpl@7f3616d2"
+      },
+      "static": false,
+      "thread_id": 40
+    },
+    {
+      "event": "call",
+      "id": 18,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select nextval('restaurant_sequence')"
+      },
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.0000398,
+      "event": "return",
+      "id": 19,
+      "parent_id": 18,
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.0025643,
+      "event": "return",
+      "id": 20,
+      "parent_id": 17,
+      "return_value": {
+        "class": "com.sawlov2code.rmbackend.model.Restaurants",
+        "object_id": 202144353,
+        "value": "Restaurants{id=14, restaurantName='Local Restaurant', selectedAmount=0}"
+      },
+      "thread_id": 40
+    },
+    {
+      "event": "call",
+      "id": 21,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "insert into restaurants (restaurant_name,selected_amount,id) values (?,?,?)"
+      },
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.0000512,
+      "event": "return",
+      "id": 22,
+      "parent_id": 21,
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.0063764,
+      "event": "return",
+      "id": 23,
+      "parent_id": 12,
+      "return_value": {
+        "class": "com.sawlov2code.rmbackend.model.Restaurants",
+        "object_id": 202144353,
+        "value": "Restaurants{id=14, restaurantName='Local Restaurant', selectedAmount=0}"
+      },
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.0073418,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Tue, 25 Feb 2025 17:57:04 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 24,
+      "parent_id": 11,
+      "thread_id": 40
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "test",
+    "app": "rm-backend",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+1-b1207.24",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "remote_recording",
+      "type": "remote"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/96ekp/rm-backend.git",
+      "branch": "dev",
+      "commit": "1c370dc69ddd2254356f261ab64b25d4ede77a49"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "handleRestaurantNameEmptyException",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/sawlov2code/rmbackend/globalException/GlobalExceptionHandler.java:19"
+                        }
+                      ],
+                      "name": "GlobalExceptionHandler",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "globalException",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "save",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/sawlov2code/rmbackend/service/RestaurantServiceImpl.java:32"
+                        }
+                      ],
+                      "name": "RestaurantServiceImpl",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "createRestaurant",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/sawlov2code/rmbackend/controller/RestaurantController.java:32"
+                        }
+                      ],
+                      "name": "RestaurantController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                }
+              ],
+              "name": "rmbackend",
+              "type": "package"
+            }
+          ],
+          "name": "sawlov2code",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /api/v1/restaurants"
+        }
+      ]
+    },
+    {
+      "type": "class",
+      "children": [
+        {
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select r1_0.id,r1_0.restaurant_name,r1_0.selected_amount from restaurants r1_0"
+        },
+        {
+          "type": "query",
+          "name": "select nextval('restaurant_sequence')"
+        },
+        {
+          "type": "query",
+          "name": "insert into restaurants (restaurant_name,selected_amount,id) values (?,?,?)"
+        }
+      ]
+    }
+  ]
+}

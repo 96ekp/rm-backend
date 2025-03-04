@@ -1,0 +1,4 @@
+[
+  "com/sawlov2code/rmbackend/controller/RestaurantController",
+  "com/sawlov2code/rmbackend/service/RestaurantServiceImpl"
+]

@@ -1,0 +1,147 @@
+{
+  "events": [
+    {
+      "defined_class": "com.sawlov2code.rmbackend.controller.RestaurantControllerTest",
+      "event": "call",
+      "id": 1,
+      "lineno": 66,
+      "method_id": "createRestaurant_ShouldSaveRestaurant_WhenValidRestaurant",
+      "path": "src/test/java/com/sawlov2code/rmbackend/controller/RestaurantControllerTest.java",
+      "receiver": {
+        "class": "com.sawlov2code.rmbackend.controller.RestaurantControllerTest",
+        "object_id": 1963774829,
+        "value": "com.sawlov2code.rmbackend.controller.RestaurantControllerTest@750cd36d"
+      },
+      "static": false,
+      "thread_id": 1
+    },
+    {
+      "defined_class": "com.sawlov2code.rmbackend.controller.RestaurantController",
+      "event": "call",
+      "id": 2,
+      "lineno": 32,
+      "method_id": "createRestaurant",
+      "parameters": [
+        {
+          "class": "com.sawlov2code.rmbackend.model.Restaurants",
+          "kind": "req",
+          "name": "restaurants",
+          "object_id": 381397683,
+          "value": "Restaurants{id=null, restaurantName='New Restaurant', selectedAmount=0}"
+        }
+      ],
+      "path": "src/main/java/com/sawlov2code/rmbackend/controller/RestaurantController.java",
+      "receiver": {
+        "class": "com.sawlov2code.rmbackend.controller.RestaurantController",
+        "object_id": 1060469917,
+        "value": "com.sawlov2code.rmbackend.controller.RestaurantController@3f357c9d"
+      },
+      "static": false,
+      "thread_id": 1
+    },
+    {
+      "elapsed": 0.0002895,
+      "event": "return",
+      "id": 3,
+      "parent_id": 2,
+      "return_value": {
+        "class": "com.sawlov2code.rmbackend.model.Restaurants",
+        "object_id": 381397683,
+        "value": "Restaurants{id=null, restaurantName='New Restaurant', selectedAmount=0}"
+      },
+      "thread_id": 1
+    },
+    {
+      "elapsed": 0.0011901,
+      "event": "return",
+      "id": 4,
+      "parent_id": 1,
+      "thread_id": 1
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "Restaurant controller create restaurant _ should save restaurant _ when valid restaurant",
+    "app": "rm-backend",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+1-b1207.24",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "junit",
+      "type": "tests"
+    },
+    "recording": {
+      "defined_class": "com.sawlov2code.rmbackend.controller.RestaurantControllerTest",
+      "method_id": "createRestaurant_ShouldSaveRestaurant_WhenValidRestaurant"
+    },
+    "git": {
+      "repository": "https://github.com/96ekp/rm-backend.git",
+      "branch": "dev",
+      "commit": "1c370dc69ddd2254356f261ab64b25d4ede77a49"
+    },
+    "source_location": "src/test/java/com/sawlov2code/rmbackend/controller/RestaurantControllerTest.java:66",
+    "frameworks": [
+      {
+        "name": "JUnit",
+        "version": "5"
+      }
+    ],
+    "test_status": "succeeded"
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "createRestaurant_ShouldSaveRestaurant_WhenValidRestaurant",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/test/java/com/sawlov2code/rmbackend/controller/RestaurantControllerTest.java:66"
+                        }
+                      ],
+                      "name": "RestaurantControllerTest",
+                      "type": "class"
+                    },
+                    {
+                      "children": [
+                        {
+                          "name": "createRestaurant",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/main/java/com/sawlov2code/rmbackend/controller/RestaurantController.java:32"
+                        }
+                      ],
+                      "name": "RestaurantController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                }
+              ],
+              "name": "rmbackend",
+              "type": "package"
+            }
+          ],
+          "name": "sawlov2code",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    }
+  ]
+}

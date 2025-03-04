@@ -1,0 +1,23 @@
+{
+  "name": "POST /api/v1/restaurants (400) - 00:56:46.308",
+  "app": "rm-backend",
+  "language": {
+    "name": "java",
+    "version": "17.0.11+1-b1207.24",
+    "engine": "OpenJDK 64-Bit Server VM"
+  },
+  "client": {
+    "name": "appmap-java",
+    "url": "https://github.com/appland/appmap-java"
+  },
+  "recorder": {
+    "name": "request_recording",
+    "type": "requests"
+  },
+  "recording": {},
+  "git": {
+    "repository": "https://github.com/96ekp/rm-backend.git",
+    "branch": "dev",
+    "commit": "1c370dc69ddd2254356f261ab64b25d4ede77a49"
+  }
+}

@@ -1,0 +1,7 @@
+[
+  {
+    "route": "GET /api/v1/restaurants",
+    "parameters": "()",
+    "status": 200
+  }
+]

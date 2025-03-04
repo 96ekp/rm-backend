@@ -1,0 +1,22 @@
+[
+  {
+    "caller": "POST /api/v1/restaurants",
+    "callee": "com/sawlov2code"
+  },
+  {
+    "caller": "com/sawlov2code",
+    "callee": "#"
+  },
+  {
+    "caller": "com/sawlov2code",
+    "callee": "insert into restaurants (restaurant_name,selected_amount,id) values (?,?,?)"
+  },
+  {
+    "caller": "com/sawlov2code",
+    "callee": "select nextval('restaurant_sequence')"
+  },
+  {
+    "caller": "com/sawlov2code",
+    "callee": "select r1_0.id,r1_0.restaurant_name,r1_0.selected_amount from restaurants r1_0"
+  }
+]

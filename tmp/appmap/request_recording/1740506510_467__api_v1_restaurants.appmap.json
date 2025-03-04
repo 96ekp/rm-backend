@@ -1,0 +1,143 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "postman-token": "f37e24f3-143f-439c-ba1e-e55190fe57cf",
+          "host": "localhost:8080",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.43.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/api/v1/restaurants",
+        "path_info": "/api/v1/restaurants",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 1,
+      "thread_id": 37
+    },
+    {
+      "event": "call",
+      "id": 2,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": ""
+      },
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.0047786,
+      "event": "return",
+      "id": 3,
+      "parent_id": 2,
+      "thread_id": 37
+    },
+    {
+      "event": "call",
+      "id": 4,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select r1_0.id,r1_0.restaurant_name,r1_0.selected_amount from restaurants r1_0"
+      },
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.0001201,
+      "event": "return",
+      "id": 5,
+      "parent_id": 4,
+      "thread_id": 37
+    },
+    {
+      "event": "call",
+      "id": 6,
+      "sql_query": {
+        "database_type": "PostgreSQL",
+        "sql": "select r1_0.id,r1_0.restaurant_name,r1_0.selected_amount from restaurants r1_0"
+      },
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.0000247,
+      "event": "return",
+      "id": 7,
+      "parent_id": 6,
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.0428276,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Tue, 25 Feb 2025 18:01:50 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 8,
+      "parent_id": 1,
+      "thread_id": 37
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "GET /api/v1/restaurants (200) - 01:01:50.467",
+    "app": "rm-backend",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+1-b1207.24",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/96ekp/rm-backend.git",
+      "branch": "dev",
+      "commit": "1c370dc69ddd2254356f261ab64b25d4ede77a49"
+    }
+  },
+  "classMap": [
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "GET /api/v1/restaurants"
+        }
+      ]
+    },
+    {
+      "type": "class",
+      "children": [
+        {
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select r1_0.id,r1_0.restaurant_name,r1_0.selected_amount from restaurants r1_0"
+        }
+      ]
+    }
+  ]
+}

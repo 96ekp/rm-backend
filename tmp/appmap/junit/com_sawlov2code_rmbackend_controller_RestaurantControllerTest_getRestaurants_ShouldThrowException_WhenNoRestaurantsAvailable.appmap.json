@@ -1,0 +1,99 @@
+{
+  "events": [
+    {
+      "defined_class": "com.sawlov2code.rmbackend.controller.RestaurantControllerTest",
+      "event": "call",
+      "id": 1,
+      "lineno": 75,
+      "method_id": "getRestaurants_ShouldThrowException_WhenNoRestaurantsAvailable",
+      "path": "src/test/java/com/sawlov2code/rmbackend/controller/RestaurantControllerTest.java",
+      "receiver": {
+        "class": "com.sawlov2code.rmbackend.controller.RestaurantControllerTest",
+        "object_id": 872917583,
+        "value": "com.sawlov2code.rmbackend.controller.RestaurantControllerTest@3407aa4f"
+      },
+      "static": false,
+      "thread_id": 1
+    },
+    {
+      "elapsed": 0.0030119,
+      "event": "return",
+      "id": 2,
+      "parent_id": 1,
+      "thread_id": 1
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "Restaurant controller get restaurants _ should throw exception _ when no restaurants available",
+    "app": "rm-backend",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+1-b1207.24",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "junit",
+      "type": "tests"
+    },
+    "recording": {
+      "defined_class": "com.sawlov2code.rmbackend.controller.RestaurantControllerTest",
+      "method_id": "getRestaurants_ShouldThrowException_WhenNoRestaurantsAvailable"
+    },
+    "git": {
+      "repository": "https://github.com/96ekp/rm-backend.git",
+      "branch": "dev",
+      "commit": "1c370dc69ddd2254356f261ab64b25d4ede77a49"
+    },
+    "source_location": "src/test/java/com/sawlov2code/rmbackend/controller/RestaurantControllerTest.java:75",
+    "frameworks": [
+      {
+        "name": "JUnit",
+        "version": "5"
+      }
+    ],
+    "test_status": "succeeded"
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "getRestaurants_ShouldThrowException_WhenNoRestaurantsAvailable",
+                          "type": "function",
+                          "static": false,
+                          "location": "src/test/java/com/sawlov2code/rmbackend/controller/RestaurantControllerTest.java:75"
+                        }
+                      ],
+                      "name": "RestaurantControllerTest",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                }
+              ],
+              "name": "rmbackend",
+              "type": "package"
+            }
+          ],
+          "name": "sawlov2code",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    }
+  ]
+}
