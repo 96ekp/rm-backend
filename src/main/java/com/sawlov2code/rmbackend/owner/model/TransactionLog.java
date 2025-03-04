@@ -1,6 +1,7 @@
 package com.sawlov2code.rmbackend.owner.model;
 
 
+import com.sawlov2code.rmbackend.menu.model.Menu;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;

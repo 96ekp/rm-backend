@@ -1,7 +1,7 @@
 package com.sawlov2code.rmbackend.restaurant.model;
 
 import com.sawlov2code.rmbackend.owner.model.Location;
-import com.sawlov2code.rmbackend.owner.model.Menu;
+import com.sawlov2code.rmbackend.menu.model.Menu;
 import com.sawlov2code.rmbackend.owner.model.Owner;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;

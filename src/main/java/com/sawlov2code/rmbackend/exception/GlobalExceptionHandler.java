@@ -1,8 +1,5 @@
-package com.sawlov2code.rmbackend.globalException;
+package com.sawlov2code.rmbackend.exception;
 
-import com.sawlov2code.rmbackend.restaurant.exception.RestaurantAlreadyExistsException;
-import com.sawlov2code.rmbackend.restaurant.exception.RestaurantIsEmptyException;
-import com.sawlov2code.rmbackend.restaurant.exception.RestaurantNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -50,4 +47,15 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
 
+
+    @ExceptionHandler(MenuNotFoundException.class)
+    public ResponseEntity<Object> handleMenuNotFoundException(MenuNotFoundException ex, WebRequest request) {
+        Map<String, Object> body = new HashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.NOT_FOUND);
+        body.put("error", "Not Found");
+        body.put("message", ex.getMessage());
+        body.put("path", request.getDescription(false).substring(4));
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }
 }

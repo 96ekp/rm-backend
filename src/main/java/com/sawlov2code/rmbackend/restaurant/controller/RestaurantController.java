@@ -1,9 +1,9 @@
 package com.sawlov2code.rmbackend.restaurant.controller;
 
-import com.sawlov2code.rmbackend.restaurant.exception.RestaurantIsEmptyException;
+import com.sawlov2code.rmbackend.exception.RestaurantIsEmptyException;
 import com.sawlov2code.rmbackend.restaurant.model.Restaurants;
 import com.sawlov2code.rmbackend.restaurant.service.RestaurantService;
-import com.sawlov2code.rmbackend.restaurant.exception.RestaurantAlreadyExistsException;
+import com.sawlov2code.rmbackend.exception.RestaurantAlreadyExistsException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

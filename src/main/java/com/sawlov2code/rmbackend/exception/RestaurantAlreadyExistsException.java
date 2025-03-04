@@ -1,4 +1,4 @@
-package com.sawlov2code.rmbackend.restaurant.exception;
+package com.sawlov2code.rmbackend.exception;
 
 public class RestaurantAlreadyExistsException extends RuntimeException {
     public RestaurantAlreadyExistsException(String message) {
