@@ -1,38 +1,35 @@
 package com.sawlov2code.rmbackend.OpenAI.controller;
 
-
-import com.sawlov2code.rmbackend.OpenAI.model.Answer;
-import com.sawlov2code.rmbackend.OpenAI.model.Question;
-import com.sawlov2code.rmbackend.OpenAI.services.OpenAIService;
+import com.sawlov2code.rmbackend.OpenAI.services.ChatService;
+import com.sawlov2code.rmbackend.OpenAI.services.RecipeService;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
 
 @RestController
-@RequestMapping("api/v1/openai")
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/api/v1/openai")
 public class OpenAIController {
 
-    private final OpenAIService openAIService;
+    private final RecipeService recipeService;
+    private final ChatService chatService;
 
+    public OpenAIController(RecipeService recipeService, ChatService chatService) {
+        this.recipeService = recipeService;
+        this.chatService = chatService;
+    }
 
-    public OpenAIController(OpenAIService openAIService) {
-        this.openAIService = openAIService;
+    @GetMapping("/ask")
+    public String getResponse(@RequestParam String prompt){
+        return chatService.getResponse(prompt);
     }
 
 
-    // Ask a question to the OpenAI API
-    @PostMapping("/ask")
-    public Answer ask(@RequestBody Question question) {
-        return openAIService.getAnswer(question);
+
+    @GetMapping("/recipe-creator")
+    public String recipeCreator(@RequestParam String ingredients,
+                                @RequestParam(defaultValue = "any") String cuisine,
+                                @RequestParam(defaultValue = "") String dietaryRestriction) {
+        return recipeService.createRecipe(ingredients, cuisine, dietaryRestriction);
     }
 
-    @PostMapping("/chat")
-    public String chat(@RequestParam String message) {
-        return openAIService.chat(message);
-    }
-
-    @GetMapping("/stream")
-    public Flux<String> chatWithStream(@RequestParam String message) {
-        return openAIService.chatWithStream(message);
-    }
 
 }
