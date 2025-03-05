@@ -21,53 +21,51 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+	@Autowired
+	private UserDetailsService userDetailsService;
 
-    @Autowired
-    private JwtFilter jwtFilter;
+	@Autowired
+	private JwtFilter jwtFilter;
 
-    @Bean
-    public AuthenticationProvider authProvider() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userDetailsService);
-        provider.setPasswordEncoder(new BCryptPasswordEncoder(12));
-        return provider;
-    }
-
-
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
-
-                .authorizeHttpRequests(request -> request
-                        // public endpoint
-                        .requestMatchers("/register", "/login", "/dashboard", "/logout").permitAll()
-
-                        // RestaurantController
-                        .requestMatchers(HttpMethod.GET, "/api/v1/restaurants/**").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/api/v1/restaurants/**").hasRole("ADMIN")
-
-                        // MenuController (example path)
-                        .requestMatchers(HttpMethod.GET, "/api/v1/menus/**").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/api/v1/menus/**").hasRole("ADMIN")
+	@Bean
+	public AuthenticationProvider authProvider() {
+		DaoAuthenticationProvider provider=new DaoAuthenticationProvider();
+		provider.setUserDetailsService(userDetailsService);
+		provider.setPasswordEncoder(new BCryptPasswordEncoder(12));
+		return provider;
+	}
 
 
-                        // AI endpoints (example path)
-                        .requestMatchers("/api/v1/ai/**").hasAnyRole("USER", "ADMIN")
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		http.csrf(AbstractHttpConfigurer::disable)
 
-                        // All other requests
-                        .anyRequest().authenticated())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+				.authorizeHttpRequests(request -> request
+						// public endpoint
+						.requestMatchers("/register", "/login","/dashboard","/logout").permitAll()
 
-        return http.build();
-    }
+						// RestaurantController
+						.requestMatchers(HttpMethod.GET, "/api/v1/restaurants/**").hasAnyRole("USER", "ADMIN")
+						.requestMatchers(HttpMethod.POST, "/api/v1/restaurants/**").hasRole("ADMIN")
 
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
-    }
+						// MenuController (example path)
+						.requestMatchers(HttpMethod.GET, "/api/v1/menus/**").hasAnyRole("USER", "ADMIN")
+						.requestMatchers(HttpMethod.POST, "/api/v1/menus/**").hasRole("ADMIN")
+
+						// OpenAIController
+						.requestMatchers(HttpMethod.POST, "/api/v1/openai/**").hasAnyRole("USER", "ADMIN")
+
+						.anyRequest().authenticated())
+				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+				.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
+		return http.build();
+	}
+
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+		return config.getAuthenticationManager();
+	}
 
 
 }
