@@ -1,32 +1,39 @@
 package com.sawlov2code.rmbackend.restaurant.model;
 
-import com.sawlov2code.rmbackend.owner.model.Location;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.sawlov2code.rmbackend.location.model.Location;
 import com.sawlov2code.rmbackend.menu.model.Menu;
-import com.sawlov2code.rmbackend.owner.model.Owner;
+import com.sawlov2code.rmbackend.user.model.Users;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
+import java.util.List;
+
 @Entity
-@Table(name = "restaurant")
+@Table(name = "restaurant", indexes = {
+        @Index(name = "idx_restaurants_name", columnList = "restaurant_name"),
+        @Index(name = "idx_restaurants_location", columnList = "location_id")
+})
 public class Restaurants {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "location_id")
     private Location location;
 
-    @ManyToOne
-    @JoinColumn(name = "menu_id")
-    private Menu menu;
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonBackReference
+    private List<Menu> menus;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Owner owner;
+    private Users user;
 
     @Column(name = "restaurant_name")
     private String restaurantName;
@@ -47,11 +54,11 @@ public class Restaurants {
     public Restaurants() {
     }
 
-    public Restaurants(Long id, Location location, Menu menu, Owner owner, String restaurantName, Integer selectedAmount, String imageUrl, Timestamp createdAt, Timestamp updatedAt) {
+    public Restaurants(Long id, Location location, List<Menu> menus, Users user, String restaurantName, Integer selectedAmount, String imageUrl, Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.location = location;
-        this.menu = menu;
-        this.owner = owner;
+        this.menus = menus;
+        this.user = user;
         this.restaurantName = restaurantName;
         this.selectedAmount = selectedAmount;
         this.imageUrl = imageUrl;
@@ -59,14 +66,13 @@ public class Restaurants {
         this.updatedAt = updatedAt;
     }
 
-
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Restaurants{");
         sb.append("id=").append(id);
         sb.append(", location=").append(location);
-        sb.append(", menu=").append(menu);
-        sb.append(", owner=").append(owner);
+        sb.append(", menus=").append(menus);
+        sb.append(", user=").append(user);
         sb.append(", restaurantName='").append(restaurantName).append('\'');
         sb.append(", selectedAmount=").append(selectedAmount);
         sb.append(", imageUrl='").append(imageUrl).append('\'');
@@ -92,20 +98,20 @@ public class Restaurants {
         this.location = location;
     }
 
-    public Menu getMenu() {
-        return menu;
+    public List<Menu> getMenus() {
+        return menus;
     }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
+    public void setMenus(List<Menu> menus) {
+        this.menus = menus;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public Users getUser() {
+        return user;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
+    public void setUser(Users owner) {
+        this.user = owner;
     }
 
     public String getRestaurantName() {

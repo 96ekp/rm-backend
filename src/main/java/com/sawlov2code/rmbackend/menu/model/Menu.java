@@ -1,10 +1,10 @@
 package com.sawlov2code.rmbackend.menu.model;
 
 
+import aj.org.objectweb.asm.commons.Remapper;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sawlov2code.rmbackend.restaurant.model.Restaurants;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -33,6 +33,11 @@ public class Menu {
     @Column(name = "updated_at")
     @UpdateTimestamp
     private Timestamp updated_at;
+
+    @ManyToOne
+    @JsonIgnore // Ignore this field during serialization
+    @JoinColumn(name = "restaurant_id")
+    private Restaurants restaurant;
 
     public Menu() {
     }
@@ -92,5 +97,13 @@ public class Menu {
 
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public Restaurants getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurants restaurant) {
+        this.restaurant = restaurant;
     }
 }

@@ -1,6 +1,7 @@
 package com.sawlov2code.rmbackend.restaurant.controller;
 
 import com.sawlov2code.rmbackend.exception.RestaurantIsEmptyException;
+import com.sawlov2code.rmbackend.restaurant.dto.RestaurantDTO;
 import com.sawlov2code.rmbackend.restaurant.model.Restaurants;
 import com.sawlov2code.rmbackend.restaurant.service.RestaurantService;
 import com.sawlov2code.rmbackend.exception.RestaurantAlreadyExistsException;
@@ -19,8 +20,8 @@ public class RestaurantController {
     }
 
     @GetMapping
-    public List<Restaurants> getRestaurants() {
-        List<Restaurants> restaurantList = restaurantService.getRestaurants();
+    public List<RestaurantDTO> getRestaurants() {
+        List<RestaurantDTO> restaurantList = restaurantService.getRestaurants();
         if (restaurantList.isEmpty()) {
             throw new RestaurantIsEmptyException("No restaurant available in Database");
         }
@@ -41,5 +42,28 @@ public class RestaurantController {
         }
     }
 
+    @GetMapping("/{id}")
+    public Restaurants getRestaurantById(@PathVariable Integer id) {
+        return restaurantService.findById(id);
+    }
+
+
+    @PutMapping("/{id}")
+    public Restaurants updateRestaurant(@PathVariable Integer id, @RequestBody Restaurants restaurantDetails) {
+        return restaurantService.update(id, restaurantDetails);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteRestaurant(@PathVariable Integer id) {
+        restaurantService.delete(id);
+    }
+
+
+    @GetMapping("/random")
+    public String getRandomRestaurant() {
+        Restaurants randomRestaurant = restaurantService.getRandomRestaurant();
+        restaurantService.incrementSelectionCount(randomRestaurant.getId());
+        return randomRestaurant.getRestaurantName();
+    }
 
 }

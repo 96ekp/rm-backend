@@ -45,7 +45,7 @@ public class SecurityConfig {
 
 				.authorizeHttpRequests(request -> request
 						// public endpoint
-						.requestMatchers("/register", "/login","/dashboard","/logout").permitAll()
+						.requestMatchers("/register", "/login").permitAll()
 
 						// RestaurantController
 						.requestMatchers(HttpMethod.GET, "/api/v1/restaurants/**").hasAnyRole("USER", "ADMIN")

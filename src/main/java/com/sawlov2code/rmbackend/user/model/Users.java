@@ -1,14 +1,16 @@
 package com.sawlov2code.rmbackend.user.model;
 
+import com.sawlov2code.rmbackend.restaurant.model.Restaurants;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 
 @Entity
-@Table(name = "owners")
+@Table(name = "users")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +34,9 @@ public class Users {
     @UpdateTimestamp
     private Timestamp updatedAt;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Restaurants> restaurants;
+
 
 
     public Users() {
@@ -46,7 +51,7 @@ public class Users {
         this.updatedAt = updatedAt;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

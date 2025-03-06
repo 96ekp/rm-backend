@@ -1,6 +1,6 @@
-package com.sawlov2code.rmbackend.owner.dao;
+package com.sawlov2code.rmbackend.transactionLog.dao;
 
-import com.sawlov2code.rmbackend.owner.model.TransactionLog;
+import com.sawlov2code.rmbackend.transactionLog.model.TransactionLog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

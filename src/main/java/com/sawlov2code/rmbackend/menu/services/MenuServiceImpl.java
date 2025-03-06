@@ -5,12 +5,10 @@ import com.sawlov2code.rmbackend.menu.dao.MenuRepository;
 import com.sawlov2code.rmbackend.menu.model.Menu;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 
 @Service
@@ -58,9 +56,8 @@ public class MenuServiceImpl implements MenuService {
 
 
     @Override
-    public Page<Menu> getMenus(Pageable pageable) {
-        logger.info("Retrieving menus with pagination");
-        return menuRepository.findAll(pageable);
+    public List<Menu> getAllMenus() {
+        return menuRepository.findAll();
     }
 
 

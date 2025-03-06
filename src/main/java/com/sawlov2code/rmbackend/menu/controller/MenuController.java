@@ -2,10 +2,6 @@ package com.sawlov2code.rmbackend.menu.controller;
 
 import com.sawlov2code.rmbackend.menu.model.Menu;
 import com.sawlov2code.rmbackend.menu.services.MenuService;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -47,11 +43,8 @@ public class MenuController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<Menu>> getMenus(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
-        Pageable pageable = PageRequest.of(page, size);
-        Page<Menu> menus = menuService.getMenus(pageable);
+    public ResponseEntity<List<Menu>> getAllMenus() {
+        List<Menu> menus = menuService.getAllMenus();
         return new ResponseEntity<>(menus, HttpStatus.OK);
     }
 }

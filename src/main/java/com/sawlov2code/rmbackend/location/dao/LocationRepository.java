@@ -1,6 +1,6 @@
-package com.sawlov2code.rmbackend.owner.dao;
+package com.sawlov2code.rmbackend.location.dao;
 
-import com.sawlov2code.rmbackend.owner.model.Location;
+import com.sawlov2code.rmbackend.location.model.Location;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

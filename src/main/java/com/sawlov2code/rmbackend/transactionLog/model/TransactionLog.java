@@ -1,4 +1,4 @@
-package com.sawlov2code.rmbackend.owner.model;
+package com.sawlov2code.rmbackend.transactionLog.model;
 
 
 import com.sawlov2code.rmbackend.menu.model.Menu;
