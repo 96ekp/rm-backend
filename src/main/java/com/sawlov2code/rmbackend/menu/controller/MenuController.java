@@ -21,6 +21,7 @@ public class MenuController {
     public ResponseEntity<Menu> createMenu(@RequestBody Menu menu) {
         Menu createdMenu = menuService.createMenu(menu);
         return new ResponseEntity<>(createdMenu, HttpStatus.CREATED);
+
     }
 
     @PutMapping("/{id}")

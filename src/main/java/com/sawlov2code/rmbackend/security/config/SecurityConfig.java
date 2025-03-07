@@ -44,7 +44,7 @@ public class SecurityConfig {
 				.csrf(AbstractHttpConfigurer::disable)
 
 				.authorizeHttpRequests(request -> request
-						// public endpoint
+//						 public endpoint
 						.requestMatchers("/register", "/login").permitAll()
 
 						// RestaurantController
