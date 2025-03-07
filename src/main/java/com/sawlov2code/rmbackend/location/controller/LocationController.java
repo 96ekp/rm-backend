@@ -43,5 +43,11 @@ public class LocationController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Location> getLocationById(@PathVariable Long id) {
+        Location location = locationService.getLocationById(id);
+        return new ResponseEntity<>(location, HttpStatus.OK);
+    }
+
 
 }

@@ -1,6 +1,7 @@
 package com.sawlov2code.rmbackend.restaurant.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sawlov2code.rmbackend.location.model.Location;
 import com.sawlov2code.rmbackend.menu.model.Menu;
 import com.sawlov2code.rmbackend.user.model.Users;
@@ -24,6 +25,7 @@ public class Restaurants {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "location_id")
     private Location location;
 
@@ -32,6 +34,7 @@ public class Restaurants {
     private List<Menu> menus;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "user_id")
     private Users user;
 

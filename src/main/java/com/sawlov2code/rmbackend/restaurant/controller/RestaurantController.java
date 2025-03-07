@@ -5,6 +5,8 @@ import com.sawlov2code.rmbackend.restaurant.dto.RestaurantDTO;
 import com.sawlov2code.rmbackend.restaurant.model.Restaurants;
 import com.sawlov2code.rmbackend.restaurant.service.RestaurantService;
 import com.sawlov2code.rmbackend.exception.RestaurantAlreadyExistsException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,8 +31,8 @@ public class RestaurantController {
     }
 
     @PostMapping
-    public Restaurants createRestaurant(@RequestBody Restaurants restaurants) {
-        if (restaurants.getRestaurantName()== null || restaurants.getRestaurantName().isEmpty()) {
+    public ResponseEntity<String> createRestaurant(@RequestBody Restaurants restaurants) {
+        if (restaurants.getRestaurantName() == null || restaurants.getRestaurantName().isEmpty()) {
             throw new RestaurantAlreadyExistsException("Restaurants name cannot be empty");
         }
         if (restaurantService.getRestaurants().stream()
@@ -38,7 +40,9 @@ public class RestaurantController {
                         .equalsIgnoreCase(restaurants.getRestaurantName()))) {
             throw new RestaurantAlreadyExistsException("Restaurants name already exists");
         } else {
-            return restaurantService.create(restaurants);
+            Restaurants createdRestaurant = restaurantService.create(restaurants);
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body("Restaurant id " + createdRestaurant.getId() + " created successfully!");
         }
     }
 
@@ -48,22 +52,24 @@ public class RestaurantController {
     }
 
 
-    @PutMapping("/{id}")
-    public Restaurants updateRestaurant(@PathVariable Integer id, @RequestBody Restaurants restaurantDetails) {
-        return restaurantService.update(id, restaurantDetails);
-    }
+   @PutMapping("/{id}")
+   public ResponseEntity<String> updateRestaurant(@PathVariable Integer id, @RequestBody Restaurants restaurantDetails) {
+       restaurantService.update(id, restaurantDetails);
+       return ResponseEntity.ok("Restaurant id {" + id + "} update successfully!");
+   }
 
-    @DeleteMapping("/{id}")
-    public void deleteRestaurant(@PathVariable Integer id) {
-        restaurantService.delete(id);
-    }
+   @DeleteMapping("/{id}")
+   public ResponseEntity<String> deleteRestaurant(@PathVariable Integer id) {
+       restaurantService.delete(id);
+       return ResponseEntity.ok("Restaurant id {" + id + "} delete successfully!");
+   }
 
 
-    @GetMapping("/random")
-    public String getRandomRestaurant() {
-        Restaurants randomRestaurant = restaurantService.getRandomRestaurant();
-        restaurantService.incrementSelectionCount(randomRestaurant.getId());
-        return randomRestaurant.getRestaurantName();
-    }
+@GetMapping("/random")
+public ResponseEntity<String> getRandomRestaurant() {
+    Restaurants randomRestaurant = restaurantService.getRandomRestaurant();
+    restaurantService.incrementSelectionCount(randomRestaurant.getId());
+    return ResponseEntity.ok("Random selected: " + randomRestaurant.getRestaurantName());
+}
 
 }

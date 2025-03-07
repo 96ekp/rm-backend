@@ -1,5 +1,6 @@
 package com.sawlov2code.rmbackend.user.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sawlov2code.rmbackend.restaurant.model.Restaurants;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -35,6 +36,7 @@ public class Users {
     private Timestamp updatedAt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonBackReference
     private List<Restaurants> restaurants;
 
 

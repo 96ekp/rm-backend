@@ -1,5 +1,6 @@
 package com.sawlov2code.rmbackend.location.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sawlov2code.rmbackend.restaurant.model.Restaurants;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -38,6 +39,7 @@ public class Location {
     private Timestamp updated_at;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<Restaurants> restaurants;
 
     public Location() {
