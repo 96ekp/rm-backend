@@ -21,7 +21,7 @@ public class Menu {
 
     @Column(name = "menu_name")
     private String menu_name;
-    @Column(name = "imageurl")
+    @Column(name = "imageurl", length = 1024)
     private String imageUrl;
     @Column(name = "ai_generated")
     private Boolean ai_generated;

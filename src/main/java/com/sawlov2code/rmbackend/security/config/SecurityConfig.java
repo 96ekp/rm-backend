@@ -58,6 +58,9 @@ public class SecurityConfig {
 						// OpenAIController
 						.requestMatchers(HttpMethod.POST, "/api/v1/openai/**").hasAnyRole("USER", "ADMIN")
 
+						// MenuController
+						.requestMatchers(HttpMethod.POST, "/api/v1/menus/**").hasRole("ADMIN")
+
 						.requestMatchers("/api/v1/**").permitAll()
 
 						.anyRequest().authenticated())
